@@ -10,19 +10,20 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val viewModel = MainViewModel()
+        lateinit var uiState: UiState
+        val viewModel = MainViewModel(Repository.Base())
 
         binding.actionButton.setOnClickListener {
-            val uiState = viewModel.handleAction()     //????????
+            uiState = uiState.handleAction(viewModel)     //????????
             uiState.update(binding)
         }
 
         binding.pictureImageButton.setOnClickListener {
-            val uiState = viewModel.clickOnPicture()
+            uiState = viewModel.clickOnPicture()
             uiState.update(binding)
         }
 
-        val uiState = viewModel.init()
+        uiState = viewModel.init()
         uiState.update(binding)
     }
 }
