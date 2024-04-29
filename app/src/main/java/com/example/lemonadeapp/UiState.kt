@@ -1,8 +1,9 @@
 package com.example.lemonadeapp
 
 import com.example.lemonadeapp.databinding.ActivityMainBinding
+import java.io.Serializable
 
-interface UiState {
+interface UiState : Serializable {
 
     fun update(binding: ActivityMainBinding)
 

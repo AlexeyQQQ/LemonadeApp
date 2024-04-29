@@ -31,14 +31,24 @@ class ScenarioTest {
 
         repeat(5) {
             gamePage.checkStateStartSqueezing()
+            activityScenarioRule.scenario.recreate()
             gamePage.clickOnPicture()
         }
+        gamePage.checkStateFinishSqueezing()
+
+        activityScenarioRule.scenario.recreate()
         gamePage.checkStateFinishSqueezing()
 
         gamePage.clickActionButton()
         gamePage.checkStateLemonadeIsReady()
 
+        activityScenarioRule.scenario.recreate()
+        gamePage.checkStateLemonadeIsReady()
+
         gamePage.clickActionButton()
+        gamePage.checkStateFinishGame()
+
+        activityScenarioRule.scenario.recreate()
         gamePage.checkStateFinishGame()
 
         gamePage.clickActionButton()
