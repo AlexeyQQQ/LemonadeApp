@@ -20,29 +20,53 @@ class MainViewModelTest {
         val viewModel: MainViewModel = MainViewModel(repository = repository)
 
         var actualUiState: UiState = viewModel.init()
-        var expectedUiState: UiState = UiState.NewGame
+        var expectedUiState: UiState = UiState.NewGame(
+            picture = PictureUiState.NewGame,
+            button = ButtonUiState.NewGame,
+            text = TextUiState.NewGame,
+        )
         assertEquals(expectedUiState, actualUiState)
 
         actualUiState = viewModel.startSqueezing()
-        expectedUiState = UiState.StartSqueezing
+        expectedUiState = UiState.StartSqueezing(
+            picture = PictureUiState.StartSqueezing,
+            button = ButtonUiState.StartSqueezing,
+            text = TextUiState.StartSqueezing,
+        )
 
         repeat(5) {
             assertEquals(expectedUiState, actualUiState)
             actualUiState = viewModel.clickOnPicture()
         }
-        expectedUiState = UiState.FinishSqueezing
+        expectedUiState = UiState.FinishSqueezing(
+            picture = PictureUiState.FinishSqueezing,
+            button = ButtonUiState.FinishSqueezing,
+            text = TextUiState.FinishSqueezing,
+        )
         assertEquals(expectedUiState, actualUiState)
 
         actualUiState = viewModel.lemonadeIsReady()
-        expectedUiState = UiState.LemonadeIsReady
+        expectedUiState = UiState.LemonadeIsReady(
+            picture = PictureUiState.LemonadeIsReady,
+            button = ButtonUiState.LemonadeIsReady,
+            text = TextUiState.LemonadeIsReady,
+        )
         assertEquals(expectedUiState, actualUiState)
 
         actualUiState = viewModel.finishGame()
-        expectedUiState = UiState.FinishGame
+        expectedUiState = UiState.FinishGame(
+            picture = PictureUiState.FinishGame,
+            button = ButtonUiState.FinishGame,
+            text = TextUiState.FinishGame,
+        )
         assertEquals(expectedUiState, actualUiState)
 
         actualUiState = viewModel.newGame()
-        expectedUiState = UiState.NewGame
+        expectedUiState = UiState.NewGame(
+            picture = PictureUiState.NewGame,
+            button = ButtonUiState.NewGame,
+            text = TextUiState.NewGame,
+        )
         assertEquals(expectedUiState, actualUiState)
     }
 }

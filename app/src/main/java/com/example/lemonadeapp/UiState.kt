@@ -9,93 +9,71 @@ interface UiState : Serializable {
 
     fun handleAction(viewModel: Actions): UiState
 
-    object NewGame : UiState {
+    abstract class Abstract(
+        private val picture: PictureUiState,
+        private val button: ButtonUiState,
+        private val text: TextUiState,
+    ) : UiState {
+
         override fun update(binding: ActivityMainBinding) {
             with(binding) {
-                pictureImageButton.isClickable = false
-                pictureImageButton.setImageResource(R.drawable.ic_tree)
-
-                actionButton.isEnabled = true
-                actionButton.text = actionButton.context.getString(R.string.select_lemon)
-
-                hintTextView.text = hintTextView.context.getString(R.string.hint_select_lemon)
+                picture.update(pictureImageButton)
+                button.update(actionButton)
+                text.update(hintTextView)
             }
         }
+
+    }
+
+    data class NewGame(
+        private val picture: PictureUiState,
+        private val button: ButtonUiState,
+        private val text: TextUiState,
+    ) : Abstract(picture, button, text) {
 
         override fun handleAction(viewModel: Actions): UiState {
             return viewModel.startSqueezing()
         }
     }
 
-    object StartSqueezing : UiState {
-        override fun update(binding: ActivityMainBinding) {
-            with(binding) {
-                pictureImageButton.isClickable = true
-                pictureImageButton.setImageResource(R.drawable.ic_lemon)
-
-                actionButton.isEnabled = false
-                actionButton.text = actionButton.context.getString(R.string.squeeze_lemon)
-
-                hintTextView.text = hintTextView.context.getString(R.string.hint_start_squeezing)
-            }
-        }
+    data class StartSqueezing(
+        private val picture: PictureUiState,
+        private val button: ButtonUiState,
+        private val text: TextUiState,
+    ) : Abstract(picture, button, text) {
 
         override fun handleAction(viewModel: Actions): UiState = throw IllegalStateException("")
     }
 
-    object FinishSqueezing : UiState {
-        override fun update(binding: ActivityMainBinding) {
-            with(binding) {
-                pictureImageButton.isClickable = false
-                pictureImageButton.setImageResource(R.drawable.ic_lemon)
-
-                actionButton.isEnabled = true
-                actionButton.text = actionButton.context.getString(R.string.squeeze_lemon)
-
-                hintTextView.text =
-                    hintTextView.context.getString(R.string.hint_start_squeezing)
-            }
-        }
+    data class FinishSqueezing(
+        private val picture: PictureUiState,
+        private val button: ButtonUiState,
+        private val text: TextUiState,
+    ) : Abstract(picture, button, text) {
 
         override fun handleAction(viewModel: Actions): UiState {
             return viewModel.lemonadeIsReady()
         }
     }
 
-    object LemonadeIsReady : UiState {
-        override fun update(binding: ActivityMainBinding) {
-            with(binding) {
-                pictureImageButton.isClickable = false
-                pictureImageButton.setImageResource(R.drawable.ic_lemonade)
-
-                actionButton.isEnabled = true
-                actionButton.text = actionButton.context.getString(R.string.drink)
-
-                hintTextView.text = hintTextView.context.getString(R.string.hint_drink)
-            }
-        }
-
+    data class LemonadeIsReady(
+        private val picture: PictureUiState,
+        private val button: ButtonUiState,
+        private val text: TextUiState,
+    ) : Abstract(picture, button, text) {
         override fun handleAction(viewModel: Actions): UiState {
             return viewModel.finishGame()
         }
     }
 
-    object FinishGame : UiState {
-        override fun update(binding: ActivityMainBinding) {
-            with(binding) {
-                pictureImageButton.isClickable = false
-                pictureImageButton.setImageResource(R.drawable.ic_glass)
-
-                actionButton.isEnabled = true
-                actionButton.text = actionButton.context.getString(R.string.start_again)
-
-                hintTextView.text = hintTextView.context.getString(R.string.hint_start_again)
-            }
-        }
+    data class FinishGame(
+        private val picture: PictureUiState,
+        private val button: ButtonUiState,
+        private val text: TextUiState,
+    ) : Abstract(picture, button, text) {
 
         override fun handleAction(viewModel: Actions): UiState {
             return viewModel.newGame()
         }
     }
-
 }
