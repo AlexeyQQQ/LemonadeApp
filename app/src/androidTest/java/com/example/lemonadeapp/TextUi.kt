@@ -1,7 +1,7 @@
 package com.example.lemonadeapp
 
 import android.view.View
-import android.widget.Button
+import android.widget.TextView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
@@ -18,7 +18,7 @@ class TextUi(
     private val interaction = onView(
         allOf(
             withId(R.id.hintTextView),
-            isAssignableFrom(Button::class.java),
+            isAssignableFrom(TextView::class.java),
             rootId,
             rootClass,
         )

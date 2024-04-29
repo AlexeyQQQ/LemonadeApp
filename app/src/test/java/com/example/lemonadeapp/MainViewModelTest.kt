@@ -45,37 +45,6 @@ class MainViewModelTest {
         expectedUiState = UiState.NewGame
         assertEquals(expectedUiState, actualUiState)
     }
-
-//    @Test
-//    fun addition_isCorrect() {
-//        val viewModel: MainViewModel = MainViewModel()
-//
-//        var actualUiState: UiState = viewModel.init()
-//        var expectedUiState: UiState = UiState.NewGame
-//        assertEquals(expectedUiState, actualUiState)
-//
-//        actualUiState = viewModel.handleAction()
-//        expectedUiState = UiState.StartSqueezing
-//
-//        repeat(5) {
-//            assertEquals(expectedUiState, actualUiState)
-//            actualUiState = viewModel.clickOnPicture()
-//        }
-//        expectedUiState = UiState.FinishSqueezing
-//        assertEquals(expectedUiState, actualUiState)
-//
-//        actualUiState = viewModel.handleAction()
-//        expectedUiState = UiState.LemonadeIsReady
-//        assertEquals(expectedUiState, actualUiState)
-//
-//        actualUiState = viewModel.handleAction()
-//        expectedUiState = UiState.FinishGame
-//        assertEquals(expectedUiState, actualUiState)
-//
-//        actualUiState = viewModel.handleAction()
-//        expectedUiState = UiState.NewGame
-//        assertEquals(expectedUiState, actualUiState)
-//    }
 }
 
 private class FakeRepository : Repository {

@@ -14,17 +14,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/image_button"
-        tools:background="@drawable/ic_tree" />
+        tools:src="@drawable/ic_tree" />
 
     <Button
         android:id="@+id/actionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#C5AA19"
         android:padding="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
         tools:text="@string/select_lemon" />
 
     <TextView

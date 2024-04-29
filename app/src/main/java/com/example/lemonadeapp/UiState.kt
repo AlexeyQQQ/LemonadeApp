@@ -12,7 +12,7 @@ interface UiState {
         override fun update(binding: ActivityMainBinding) {
             with(binding) {
                 pictureImageButton.isClickable = false
-                pictureImageButton.setBackgroundResource(R.drawable.ic_tree)
+                pictureImageButton.setImageResource(R.drawable.ic_tree)
 
                 actionButton.isEnabled = true
                 actionButton.text = actionButton.context.getString(R.string.select_lemon)
@@ -30,7 +30,7 @@ interface UiState {
         override fun update(binding: ActivityMainBinding) {
             with(binding) {
                 pictureImageButton.isClickable = true
-                pictureImageButton.setBackgroundResource(R.drawable.ic_lemon)
+                pictureImageButton.setImageResource(R.drawable.ic_lemon)
 
                 actionButton.isEnabled = false
                 actionButton.text = actionButton.context.getString(R.string.squeeze_lemon)
@@ -46,13 +46,13 @@ interface UiState {
         override fun update(binding: ActivityMainBinding) {
             with(binding) {
                 pictureImageButton.isClickable = false
-                pictureImageButton.setBackgroundResource(R.drawable.ic_lemon) //???
+                pictureImageButton.setImageResource(R.drawable.ic_lemon)
 
                 actionButton.isEnabled = true
-                actionButton.text = actionButton.context.getString(R.string.squeeze_lemon) //???
+                actionButton.text = actionButton.context.getString(R.string.squeeze_lemon)
 
                 hintTextView.text =
-                    hintTextView.context.getString(R.string.hint_start_squeezing) //???
+                    hintTextView.context.getString(R.string.hint_start_squeezing)
             }
         }
 
@@ -64,10 +64,10 @@ interface UiState {
     object LemonadeIsReady : UiState {
         override fun update(binding: ActivityMainBinding) {
             with(binding) {
-                pictureImageButton.isClickable = false //???
-                pictureImageButton.setBackgroundResource(R.drawable.ic_lemonade)
+                pictureImageButton.isClickable = false
+                pictureImageButton.setImageResource(R.drawable.ic_lemonade)
 
-                actionButton.isEnabled = true //???
+                actionButton.isEnabled = true
                 actionButton.text = actionButton.context.getString(R.string.drink)
 
                 hintTextView.text = hintTextView.context.getString(R.string.hint_drink)
@@ -82,10 +82,10 @@ interface UiState {
     object FinishGame : UiState {
         override fun update(binding: ActivityMainBinding) {
             with(binding) {
-                pictureImageButton.isClickable = false //???
-                pictureImageButton.setBackgroundResource(R.drawable.ic_glass)
+                pictureImageButton.isClickable = false
+                pictureImageButton.setImageResource(R.drawable.ic_glass)
 
-                actionButton.isEnabled = true //???
+                actionButton.isEnabled = true
                 actionButton.text = actionButton.context.getString(R.string.start_again)
 
                 hintTextView.text = hintTextView.context.getString(R.string.hint_start_again)
