@@ -27,8 +27,10 @@ class ScenarioTest {
         val gamePage = GamePage()
         gamePage.checkStateNewGame()
 
-        gamePage.clickActionButton()
+        activityScenarioRule.scenario.recreate()
+        gamePage.checkStateNewGame()
 
+        gamePage.clickActionButton()
         repeat(5) {
             gamePage.checkStateStartSqueezing()
             activityScenarioRule.scenario.recreate()
