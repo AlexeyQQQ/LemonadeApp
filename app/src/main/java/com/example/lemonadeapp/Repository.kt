@@ -2,19 +2,25 @@ package com.example.lemonadeapp
 
 interface Repository {
 
-    fun increaseCounter(): CheckResult
+    fun increment()
+
+    fun isMax(): Boolean
+
+    fun reset()
 
     class Base : Repository {
         private var counterOfClicks: Int = 0
 
-        override fun increaseCounter(): CheckResult {
+        override fun increment() {
             counterOfClicks++
-            return if (counterOfClicks < 5) {
-                CheckResult.Increment
-            } else {
-                counterOfClicks = 0
-                CheckResult.ResetCounter
-            }
+        }
+
+        override fun isMax(): Boolean {
+            return counterOfClicks == 5
+        }
+
+        override fun reset() {
+            counterOfClicks = 0
         }
     }
 }

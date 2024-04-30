@@ -13,20 +13,19 @@ class MainViewModel(
     }
 
     fun clickOnPicture(): UiState {
-        return when (repository.increaseCounter()) {
-            is CheckResult.Increment -> UiState.StartSqueezing(
-                picture = PictureUiState.StartSqueezing,
-                button = ButtonUiState.StartSqueezing,
-                text = TextUiState.StartSqueezing,
-            )
-
-            is CheckResult.ResetCounter -> UiState.FinishSqueezing(
+        repository.increment()
+        return if (repository.isMax()) {
+            UiState.FinishSqueezing(
                 picture = PictureUiState.FinishSqueezing,
                 button = ButtonUiState.FinishSqueezing,
                 text = TextUiState.FinishSqueezing,
             )
-
-            else -> throw IllegalStateException()
+        } else {
+            UiState.StartSqueezing(
+                picture = PictureUiState.StartSqueezing,
+                button = ButtonUiState.StartSqueezing,
+                text = TextUiState.StartSqueezing,
+            )
         }
     }
 
@@ -55,11 +54,8 @@ class MainViewModel(
     }
 
     override fun newGame(): UiState {
-        return UiState.NewGame(
-            picture = PictureUiState.NewGame,
-            button = ButtonUiState.NewGame,
-            text = TextUiState.NewGame,
-        )
+        repository.reset()
+        return init()
     }
 }
 
