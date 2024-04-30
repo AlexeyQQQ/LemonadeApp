@@ -2,8 +2,9 @@ package com.example.lemonadeapp
 
 import android.widget.ImageButton
 import androidx.annotation.DrawableRes
+import java.io.Serializable
 
-interface PictureUiState {
+interface PictureUiState : Serializable {
 
     fun update(imageButton: ImageButton)
 

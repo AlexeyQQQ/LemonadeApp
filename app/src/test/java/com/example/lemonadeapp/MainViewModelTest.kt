@@ -22,7 +22,7 @@ class MainViewModelTest {
         var actualUiState: UiState = viewModel.init()
         var expectedUiState: UiState = UiState.NewGame(
             picture = PictureUiState.NewGame,
-            button = ButtonUiState.NewGame,
+            button = ActionButtonUiState.NewGame,
             text = TextUiState.NewGame,
         )
         assertEquals(expectedUiState, actualUiState)
@@ -30,7 +30,7 @@ class MainViewModelTest {
         actualUiState = viewModel.startSqueezing()
         expectedUiState = UiState.StartSqueezing(
             picture = PictureUiState.StartSqueezing,
-            button = ButtonUiState.StartSqueezing,
+            button = ActionButtonUiState.StartSqueezing,
             text = TextUiState.StartSqueezing,
         )
 
@@ -40,7 +40,7 @@ class MainViewModelTest {
         }
         expectedUiState = UiState.FinishSqueezing(
             picture = PictureUiState.FinishSqueezing,
-            button = ButtonUiState.FinishSqueezing,
+            button = ActionButtonUiState.FinishSqueezing,
             text = TextUiState.FinishSqueezing,
         )
         assertEquals(expectedUiState, actualUiState)
@@ -48,7 +48,7 @@ class MainViewModelTest {
         actualUiState = viewModel.lemonadeIsReady()
         expectedUiState = UiState.LemonadeIsReady(
             picture = PictureUiState.LemonadeIsReady,
-            button = ButtonUiState.LemonadeIsReady,
+            button = ActionButtonUiState.LemonadeIsReady,
             text = TextUiState.LemonadeIsReady,
         )
         assertEquals(expectedUiState, actualUiState)
@@ -56,7 +56,7 @@ class MainViewModelTest {
         actualUiState = viewModel.finishGame()
         expectedUiState = UiState.FinishGame(
             picture = PictureUiState.FinishGame,
-            button = ButtonUiState.FinishGame,
+            button = ActionButtonUiState.FinishGame,
             text = TextUiState.FinishGame,
         )
         assertEquals(expectedUiState, actualUiState)
@@ -64,7 +64,7 @@ class MainViewModelTest {
         actualUiState = viewModel.newGame()
         expectedUiState = UiState.NewGame(
             picture = PictureUiState.NewGame,
-            button = ButtonUiState.NewGame,
+            button = ActionButtonUiState.NewGame,
             text = TextUiState.NewGame,
         )
         assertEquals(expectedUiState, actualUiState)

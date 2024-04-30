@@ -7,7 +7,7 @@ class MainViewModel(
     fun init(): UiState {
         return UiState.NewGame(
             picture = PictureUiState.NewGame,
-            button = ButtonUiState.NewGame,
+            button = ActionButtonUiState.NewGame,
             text = TextUiState.NewGame,
         )
     }
@@ -17,13 +17,13 @@ class MainViewModel(
         return if (repository.isMax()) {
             UiState.FinishSqueezing(
                 picture = PictureUiState.FinishSqueezing,
-                button = ButtonUiState.FinishSqueezing,
+                button = ActionButtonUiState.FinishSqueezing,
                 text = TextUiState.FinishSqueezing,
             )
         } else {
             UiState.StartSqueezing(
                 picture = PictureUiState.StartSqueezing,
-                button = ButtonUiState.StartSqueezing,
+                button = ActionButtonUiState.StartSqueezing,
                 text = TextUiState.StartSqueezing,
             )
         }
@@ -32,7 +32,7 @@ class MainViewModel(
     override fun startSqueezing(): UiState {
         return UiState.StartSqueezing(
             picture = PictureUiState.StartSqueezing,
-            button = ButtonUiState.StartSqueezing,
+            button = ActionButtonUiState.StartSqueezing,
             text = TextUiState.StartSqueezing,
         )
     }
@@ -40,7 +40,7 @@ class MainViewModel(
     override fun lemonadeIsReady(): UiState {
         return UiState.LemonadeIsReady(
             picture = PictureUiState.LemonadeIsReady,
-            button = ButtonUiState.LemonadeIsReady,
+            button = ActionButtonUiState.LemonadeIsReady,
             text = TextUiState.LemonadeIsReady,
         )
     }
@@ -48,7 +48,7 @@ class MainViewModel(
     override fun finishGame(): UiState {
         return UiState.FinishGame(
             picture = PictureUiState.FinishGame,
-            button = ButtonUiState.FinishGame,
+            button = ActionButtonUiState.FinishGame,
             text = TextUiState.FinishGame,
         )
     }

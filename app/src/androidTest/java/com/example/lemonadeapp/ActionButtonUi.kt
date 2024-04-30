@@ -1,7 +1,7 @@
 package com.example.lemonadeapp
 
 import android.view.View
-import android.widget.Button
+import androidx.appcompat.widget.AppCompatButton
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
@@ -20,7 +20,7 @@ class ActionButtonUi(
     private val interaction = onView(
         allOf(
             withId(R.id.actionButton),
-            isAssignableFrom(Button::class.java),
+            isAssignableFrom(AppCompatButton::class.java),
             rootId,
             rootClass
         )

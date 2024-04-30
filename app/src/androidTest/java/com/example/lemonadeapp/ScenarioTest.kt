@@ -23,7 +23,7 @@ class ScenarioTest {
      * 5 Нажали на кнопку 1 - вернулись на #1 State: New game
      */
     @Test
-    fun useAppContext() {
+    fun testCase1() {
         val gamePage = GamePage()
         gamePage.checkStateNewGame()
 
@@ -32,6 +32,7 @@ class ScenarioTest {
         repeat(5) {
             gamePage.checkStateStartSqueezing()
             activityScenarioRule.scenario.recreate()
+            gamePage.checkStateStartSqueezing()
             gamePage.clickOnPicture()
         }
         gamePage.checkStateFinishSqueezing()
@@ -52,6 +53,9 @@ class ScenarioTest {
         gamePage.checkStateFinishGame()
 
         gamePage.clickActionButton()
+        gamePage.checkStateNewGame()
+
+        activityScenarioRule.scenario.recreate()
         gamePage.checkStateNewGame()
     }
 }

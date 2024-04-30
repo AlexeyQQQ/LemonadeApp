@@ -1,7 +1,7 @@
 package com.example.lemonadeapp
 
 import android.view.View
-import android.widget.ImageButton
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
@@ -19,7 +19,7 @@ class PictureUi(
     private val interaction = onView(
         allOf(
             withId(R.id.pictureImageButton),
-            isAssignableFrom(ImageButton::class.java),
+            isAssignableFrom(AppCompatImageButton::class.java),
             rootId,
             rootClass
         )
