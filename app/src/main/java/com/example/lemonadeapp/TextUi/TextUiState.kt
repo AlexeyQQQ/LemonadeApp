@@ -1,19 +1,18 @@
 package com.example.lemonadeapp.TextUi
 
-import android.widget.TextView
 import androidx.annotation.StringRes
 import com.example.lemonadeapp.R
 
 interface TextUiState {
 
-    fun update(textView: TextView)
+    fun update(textView: UpdateTextView)
 
     abstract class Abstract(
         @StringRes private val resId: Int
     ) : TextUiState {
 
-        override fun update(textView: TextView) {
-            textView.setText(resId)
+        override fun update(textView: UpdateTextView) {
+            textView.updateText(resId)
         }
     }
 

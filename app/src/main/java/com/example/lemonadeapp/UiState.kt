@@ -39,7 +39,7 @@ interface UiState : Serializable {
         ) {
             pictureImageButton.updateUiState(picture)
             actionButton.updateUiState(button)
-            hintTextView.updateUiState(text)
+            text.update(hintTextView)
         }
     }
 

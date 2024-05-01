@@ -2,15 +2,13 @@ package com.example.lemonadeapp.TextUi
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.annotation.StringRes
 import com.google.android.material.textview.MaterialTextView
 
 class CustomTextView : MaterialTextView, UpdateTextView {
 
-    private lateinit var textUiState: TextUiState
-
-    override fun updateUiState(outer: TextUiState) {
-        textUiState = outer
-        textUiState.update(this)
+    override fun updateText(resId: Int) {
+        setText(resId)
     }
 
     constructor(context: Context) : super(context)
@@ -24,5 +22,5 @@ class CustomTextView : MaterialTextView, UpdateTextView {
 
 interface UpdateTextView {
 
-    fun updateUiState(outer: TextUiState)
+    fun updateText(@StringRes resId: Int)
 }

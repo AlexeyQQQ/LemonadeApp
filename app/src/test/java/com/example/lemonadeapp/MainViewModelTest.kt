@@ -19,7 +19,7 @@ class MainViewModelTest {
      * 5 Нажали на кнопку 1 - вернулись на #1 State: New game
      */
     @Test
-    fun addition_isCorrect() {
+    fun testCase1() {
         val repository: FakeRepository = FakeRepository()
         val viewModel: MainViewModel = MainViewModel(repository = repository)
 
