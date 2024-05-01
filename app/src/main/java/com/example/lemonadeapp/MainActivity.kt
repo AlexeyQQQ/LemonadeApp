@@ -14,19 +14,25 @@ class MainActivity : AppCompatActivity() {
         lateinit var uiState: UiState
         val viewModel = (application as LemonadeApp).viewModel
 
+        val showUi: () -> Unit = {
+            uiState.update(
+                binding.pictureImageButton,
+                binding.actionButton,
+                binding.hintTextView
+            )
+        }
+
         binding.actionButton.setOnClickListener {
             uiState = binding.actionButton.handleAction(viewModel)
-            uiState.update(binding)
+            showUi.invoke()
         }
 
         binding.pictureImageButton.setOnClickListener {
             uiState = viewModel.clickOnPicture()
-            uiState.update(binding)
+            showUi.invoke()
         }
 
-        if (savedInstanceState == null) {
-            uiState = viewModel.init()
-            uiState.update(binding)
-        }
+        uiState = viewModel.init(savedInstanceState == null)
+        showUi.invoke()
     }
 }

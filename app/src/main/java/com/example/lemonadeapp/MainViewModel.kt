@@ -9,12 +9,16 @@ class MainViewModel(
     private val repository: Repository
 ) : Actions {
 
-    fun init(): UiState {
-        return UiState.NewGame(
-            picture = PictureUiState.NewGame,
-            button = ActionButtonUiState.NewGame,
-            text = TextUiState.NewGame,
-        )
+    fun init(isFirstTime: Boolean = true): UiState {
+        return if (isFirstTime) {
+            UiState.NewGame(
+                picture = PictureUiState.NewGame,
+                button = ActionButtonUiState.NewGame,
+                text = TextUiState.NewGame,
+            )
+        } else {
+            UiState.Empty
+        }
     }
 
     fun clickOnPicture(): UiState {

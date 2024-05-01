@@ -5,7 +5,7 @@ import android.os.Parcelable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageButton
 
-class PictureButton : AppCompatImageButton {
+class PictureButton : AppCompatImageButton, UpdatePictureButton {
 
     private lateinit var pictureUiState: PictureUiState
 
@@ -17,7 +17,7 @@ class PictureButton : AppCompatImageButton {
         defStyleAttrs
     )
 
-    fun updateUiState(outer: PictureUiState) {
+    override fun updateUiState(outer: PictureUiState) {
         pictureUiState = outer
         pictureUiState.update(this)
     }
@@ -35,4 +35,9 @@ class PictureButton : AppCompatImageButton {
         super.onRestoreInstanceState(restoredState.superState)
         updateUiState(restoredState.restore())
     }
+}
+
+interface UpdatePictureButton {
+
+    fun updateUiState(outer: PictureUiState)
 }

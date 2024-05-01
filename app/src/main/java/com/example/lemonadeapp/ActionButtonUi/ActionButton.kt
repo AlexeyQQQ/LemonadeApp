@@ -7,9 +7,7 @@ import androidx.appcompat.widget.AppCompatButton
 import com.example.lemonadeapp.Actions
 import com.example.lemonadeapp.UiState
 
-class ActionButton : AppCompatButton {
-
-    fun handleAction(viewModel: Actions): UiState = actionButtonUiState.handleAction(viewModel)
+class ActionButton : AppCompatButton, UpdateActionButton {
 
     private lateinit var actionButtonUiState: ActionButtonUiState
 
@@ -21,10 +19,12 @@ class ActionButton : AppCompatButton {
         defStyleAttrs
     )
 
-    fun updateUiState(outer: ActionButtonUiState) {
+    override fun updateUiState(outer: ActionButtonUiState) {
         actionButtonUiState = outer
         actionButtonUiState.update(this)
     }
+
+    fun handleAction(viewModel: Actions): UiState = actionButtonUiState.handleAction(viewModel)
 
     override fun onSaveInstanceState(): Parcelable? {
         return super.onSaveInstanceState()?.let {
@@ -39,4 +39,9 @@ class ActionButton : AppCompatButton {
         super.onRestoreInstanceState(restoredState.superState)
         updateUiState(restoredState.restore())
     }
+}
+
+interface UpdateActionButton {
+
+    fun updateUiState(outer: ActionButtonUiState)
 }

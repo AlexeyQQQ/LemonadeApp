@@ -26,7 +26,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         tools:text="@string/select_lemon" />
 
-    <TextView
+    <com.example.lemonadeapp.TextUi.CustomTextView
         android:id="@+id/hintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
