@@ -1,5 +1,10 @@
 package com.example.lemonadeapp
 
+import com.example.lemonadeapp.ActionButtonUi.ActionButtonUiState
+import com.example.lemonadeapp.PictureButtonUi.PictureUiState
+import com.example.lemonadeapp.TextUi.TextUiState
+import com.example.lemonadeapp.repository.Repository
+
 class MainViewModel(
     private val repository: Repository
 ) : Actions {

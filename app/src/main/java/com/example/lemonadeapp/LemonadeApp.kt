@@ -1,6 +1,7 @@
 package com.example.lemonadeapp
 
 import android.app.Application
+import com.example.lemonadeapp.repository.Repository
 
 class LemonadeApp : Application() {
 

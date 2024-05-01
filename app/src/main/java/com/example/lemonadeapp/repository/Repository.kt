@@ -1,4 +1,4 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.repository
 
 interface Repository {
 
@@ -9,6 +9,7 @@ interface Repository {
     fun reset()
 
     class Base : Repository {
+
         private var counterOfClicks: Int = 0
 
         override fun increment() {

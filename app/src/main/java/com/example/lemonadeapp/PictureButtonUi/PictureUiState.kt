@@ -1,7 +1,8 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.PictureButtonUi
 
 import android.widget.ImageButton
 import androidx.annotation.DrawableRes
+import com.example.lemonadeapp.R
 import java.io.Serializable
 
 interface PictureUiState : Serializable {

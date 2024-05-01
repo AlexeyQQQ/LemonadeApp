@@ -9,14 +9,14 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <com.example.lemonadeapp.PictureButton
+    <com.example.lemonadeapp.PictureButtonUi.PictureButton
         android:id="@+id/pictureImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/image_button"
         tools:src="@drawable/ic_tree" />
 
-    <com.example.lemonadeapp.ActionButton
+    <com.example.lemonadeapp.ActionButtonUi.ActionButton
         android:id="@+id/actionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

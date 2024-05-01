@@ -1,7 +1,10 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.ActionButtonUi
 
 import android.widget.Button
 import androidx.annotation.StringRes
+import com.example.lemonadeapp.Actions
+import com.example.lemonadeapp.R
+import com.example.lemonadeapp.UiState
 import java.io.Serializable
 
 interface ActionButtonUiState : Serializable {

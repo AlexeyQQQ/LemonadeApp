@@ -1,7 +1,8 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.TextUi
 
 import android.widget.TextView
 import androidx.annotation.StringRes
+import com.example.lemonadeapp.R
 
 interface TextUiState {
 

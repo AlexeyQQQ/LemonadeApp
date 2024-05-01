@@ -1,15 +1,13 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.PictureButtonUi
 
 import android.content.Context
 import android.os.Parcelable
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageButton
 
-class ActionButton : AppCompatButton {
+class PictureButton : AppCompatImageButton {
 
-    fun handleAction(viewModel: Actions): UiState = actionButtonUiState.handleAction(viewModel)
-
-    private lateinit var actionButtonUiState: ActionButtonUiState
+    private lateinit var pictureUiState: PictureUiState
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet)
@@ -19,21 +17,21 @@ class ActionButton : AppCompatButton {
         defStyleAttrs
     )
 
-    fun updateUiState(outer: ActionButtonUiState) {
-        actionButtonUiState = outer
-        actionButtonUiState.update(this)
+    fun updateUiState(outer: PictureUiState) {
+        pictureUiState = outer
+        pictureUiState.update(this)
     }
 
     override fun onSaveInstanceState(): Parcelable? {
         return super.onSaveInstanceState()?.let {
-            val state = ActionButtonSavedState(it)
-            state.save(actionButtonUiState)
+            val state = PictureSavedState(it)
+            state.save(pictureUiState)
             return state
         }
     }
 
     override fun onRestoreInstanceState(state: Parcelable?) {
-        val restoredState = state as ActionButtonSavedState
+        val restoredState = state as PictureSavedState
         super.onRestoreInstanceState(restoredState.superState)
         updateUiState(restoredState.restore())
     }
