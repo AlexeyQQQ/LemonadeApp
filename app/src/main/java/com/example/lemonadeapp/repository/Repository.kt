@@ -8,20 +8,22 @@ interface Repository {
 
     fun reset()
 
-    class Base : Repository {
-
-        private var counterOfClicks: Int = 0
+    class Base(
+        private val counterOfClicks: IntCache,
+    ) : Repository {
 
         override fun increment() {
-            counterOfClicks++
+            val current = counterOfClicks.read()
+            val new = current + 1
+            counterOfClicks.save(new)
         }
 
         override fun isMax(): Boolean {
-            return counterOfClicks == 5
+            return counterOfClicks.read() == 5
         }
 
         override fun reset() {
-            counterOfClicks = 0
+            counterOfClicks.save(0)
         }
     }
 }
