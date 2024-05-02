@@ -2,9 +2,10 @@ package com.example.lemonadeapp
 
 import android.app.Application
 import android.content.Context
-import com.example.lemonadeapp.repository.IntCache
-import com.example.lemonadeapp.repository.PermanentStorage
-import com.example.lemonadeapp.repository.Repository
+import com.example.lemonadeapp.data.repository.IntCache
+import com.example.lemonadeapp.data.repository.PermanentStorage
+import com.example.lemonadeapp.data.repository.Repository
+import com.example.lemonadeapp.presentation.MainViewModel
 
 class LemonadeApp : Application() {
 

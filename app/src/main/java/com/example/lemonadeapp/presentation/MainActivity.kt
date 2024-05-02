@@ -1,7 +1,8 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lemonadeapp.LemonadeApp
 import com.example.lemonadeapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.lemonadeapp.repository
+package com.example.lemonadeapp.data.repository
 
 import android.content.SharedPreferences
 

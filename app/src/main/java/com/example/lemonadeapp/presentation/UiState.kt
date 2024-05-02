@@ -1,11 +1,11 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.presentation
 
-import com.example.lemonadeapp.ActionButtonUi.ActionButtonUiState
-import com.example.lemonadeapp.ActionButtonUi.UpdateActionButton
-import com.example.lemonadeapp.PictureButtonUi.PictureUiState
-import com.example.lemonadeapp.PictureButtonUi.UpdatePictureButton
-import com.example.lemonadeapp.TextUi.TextUiState
-import com.example.lemonadeapp.TextUi.UpdateTextView
+import com.example.lemonadeapp.views.action.ActionButtonUiState
+import com.example.lemonadeapp.views.action.UpdateActionButton
+import com.example.lemonadeapp.views.picture.PictureUiState
+import com.example.lemonadeapp.views.picture.UpdatePictureButton
+import com.example.lemonadeapp.views.text.TextUiState
+import com.example.lemonadeapp.views.text.UpdateTextView
 import java.io.Serializable
 
 interface UiState : Serializable {

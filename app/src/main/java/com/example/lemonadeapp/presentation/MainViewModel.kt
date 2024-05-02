@@ -1,9 +1,9 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.presentation
 
-import com.example.lemonadeapp.ActionButtonUi.ActionButtonUiState
-import com.example.lemonadeapp.PictureButtonUi.PictureUiState
-import com.example.lemonadeapp.TextUi.TextUiState
-import com.example.lemonadeapp.repository.Repository
+import com.example.lemonadeapp.data.repository.Repository
+import com.example.lemonadeapp.views.action.ActionButtonUiState
+import com.example.lemonadeapp.views.picture.PictureUiState
+import com.example.lemonadeapp.views.text.TextUiState
 
 class MainViewModel(
     private val repository: Repository

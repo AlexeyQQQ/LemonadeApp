@@ -1,4 +1,4 @@
-package com.example.lemonadeapp.TextUi
+package com.example.lemonadeapp.views.text
 
 import androidx.annotation.StringRes
 import com.example.lemonadeapp.R

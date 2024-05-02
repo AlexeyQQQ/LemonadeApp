@@ -1,11 +1,11 @@
-package com.example.lemonadeapp.ActionButtonUi
+package com.example.lemonadeapp.views.action
 
 import android.content.Context
 import android.os.Parcelable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
-import com.example.lemonadeapp.Actions
-import com.example.lemonadeapp.UiState
+import com.example.lemonadeapp.presentation.Actions
+import com.example.lemonadeapp.presentation.UiState
 
 class ActionButton : AppCompatButton, UpdateActionButton {
 
