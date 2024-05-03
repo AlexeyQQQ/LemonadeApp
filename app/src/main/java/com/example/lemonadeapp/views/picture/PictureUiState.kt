@@ -1,22 +1,20 @@
 package com.example.lemonadeapp.views.picture
 
-import android.widget.ImageButton
 import androidx.annotation.DrawableRes
 import com.example.lemonadeapp.R
 import java.io.Serializable
 
 interface PictureUiState : Serializable {
 
-    fun update(imageButton: ImageButton)
+    fun update(imageButton: UpdatePictureButton)
 
     abstract class Abstract(
         private val isClickable: Boolean = false,
         @DrawableRes private val imageResource: Int,
     ) : PictureUiState {
 
-        override fun update(imageButton: ImageButton) {
-            imageButton.isClickable = isClickable
-            imageButton.setImageResource(imageResource)
+        override fun update(imageButton: UpdatePictureButton) {
+            imageButton.updateUi(isClickable, imageResource)
         }
     }
 

@@ -1,6 +1,5 @@
 package com.example.lemonadeapp.views.action
 
-import android.widget.Button
 import androidx.annotation.StringRes
 import com.example.lemonadeapp.R
 import com.example.lemonadeapp.presentation.Actions
@@ -9,18 +8,18 @@ import java.io.Serializable
 
 interface ActionButtonUiState : Serializable {
 
-    fun update(button: Button)
+    fun update(button: UpdateActionButton)
 
     fun handleAction(viewModel: Actions): UiState
 
     abstract class Abstract(
-        private val isEnabled: Boolean = true,
+        private val enabled: Boolean = true,
         @StringRes private val resId: Int,
     ) : ActionButtonUiState {
 
-        override fun update(button: Button) {
-            button.isEnabled = isEnabled
-            button.setText(resId)
+        override fun update(button: UpdateActionButton) {
+            button.updateEnabled(enabled)
+            button.updateText(resId)
         }
     }
 
@@ -30,7 +29,7 @@ interface ActionButtonUiState : Serializable {
         }
     }
 
-    object StartSqueezing : Abstract(isEnabled = false, resId = R.string.squeeze_lemon) {
+    object StartSqueezing : Abstract(enabled = false, resId = R.string.squeeze_lemon) {
         override fun handleAction(viewModel: Actions): UiState = throw IllegalStateException("")
     }
 

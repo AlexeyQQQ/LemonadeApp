@@ -3,6 +3,7 @@ package com.example.lemonadeapp.views.action
 import android.content.Context
 import android.os.Parcelable
 import android.util.AttributeSet
+import androidx.annotation.StringRes
 import androidx.appcompat.widget.AppCompatButton
 import com.example.lemonadeapp.presentation.Actions
 import com.example.lemonadeapp.presentation.UiState
@@ -22,6 +23,14 @@ class ActionButton : AppCompatButton, UpdateActionButton {
     override fun updateUiState(outer: ActionButtonUiState) {
         actionButtonUiState = outer
         actionButtonUiState.update(this)
+    }
+
+    override fun updateText(@StringRes textId: Int) {
+        setText(textId)
+    }
+
+    override fun updateEnabled(enabled: Boolean) {
+        isEnabled = enabled
     }
 
     fun handleAction(viewModel: Actions): UiState = actionButtonUiState.handleAction(viewModel)
@@ -44,4 +53,7 @@ class ActionButton : AppCompatButton, UpdateActionButton {
 interface UpdateActionButton {
 
     fun updateUiState(outer: ActionButtonUiState)
+
+    fun updateText(@StringRes textId: Int)
+    fun updateEnabled(enabled: Boolean)
 }

@@ -3,6 +3,7 @@ package com.example.lemonadeapp.views.picture
 import android.content.Context
 import android.os.Parcelable
 import android.util.AttributeSet
+import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageButton
 
 class PictureButton : AppCompatImageButton, UpdatePictureButton {
@@ -20,6 +21,11 @@ class PictureButton : AppCompatImageButton, UpdatePictureButton {
     override fun updateUiState(outer: PictureUiState) {
         pictureUiState = outer
         pictureUiState.update(this)
+    }
+
+    override fun updateUi(clickable: Boolean, imageResource: Int) {
+        isClickable = clickable
+        setImageResource(imageResource)
     }
 
     override fun onSaveInstanceState(): Parcelable? {
@@ -40,4 +46,6 @@ class PictureButton : AppCompatImageButton, UpdatePictureButton {
 interface UpdatePictureButton {
 
     fun updateUiState(outer: PictureUiState)
+
+    fun updateUi(clickable: Boolean, @DrawableRes imageResource: Int)
 }
