@@ -7,9 +7,6 @@ import java.io.Serializable
 interface ActionButtonUiState : Serializable {
 
     fun update(button: UpdateActionButton)
-
-//    fun handleAction(viewModel: Actions): UiState
-
     abstract class Abstract(
         private val enabled: Boolean = true,
         @StringRes private val resId: Int,
@@ -21,31 +18,13 @@ interface ActionButtonUiState : Serializable {
         }
     }
 
-    object NewGame : Abstract(resId = R.string.select_lemon) {
-//        override fun handleAction(viewModel: Actions): UiState {
-//            return viewModel.startSqueezing()
-//        }
-    }
+    object NewGame : Abstract(resId = R.string.select_lemon)
 
-    object StartSqueezing : Abstract(enabled = false, resId = R.string.squeeze_lemon) {
-//        override fun handleAction(viewModel: Actions): UiState = throw IllegalStateException("")
-    }
+    object StartSqueezing : Abstract(enabled = false, resId = R.string.squeeze_lemon)
 
-    object FinishSqueezing : Abstract(resId = R.string.squeeze_lemon) {
-//        override fun handleAction(viewModel: Actions): UiState {
-//            return viewModel.lemonadeIsReady()
-//        }
-    }
+    object FinishSqueezing : Abstract(resId = R.string.squeeze_lemon)
 
-    object LemonadeIsReady : Abstract(resId = R.string.drink) {
-//        override fun handleAction(viewModel: Actions): UiState {
-//            return viewModel.finishGame()
-//        }
-    }
+    object LemonadeIsReady : Abstract(resId = R.string.drink)
 
-    object FinishGame : Abstract(resId = R.string.start_again) {
-//        override fun handleAction(viewModel: Actions): UiState {
-//            return viewModel.newGame()
-//        }
-    }
+    object FinishGame : Abstract(resId = R.string.start_again)
 }
