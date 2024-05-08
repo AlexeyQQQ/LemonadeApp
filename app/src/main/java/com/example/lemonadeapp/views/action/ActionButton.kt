@@ -5,8 +5,6 @@ import android.os.Parcelable
 import android.util.AttributeSet
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.AppCompatButton
-import com.example.lemonadeapp.presentation.Actions
-import com.example.lemonadeapp.presentation.UiState
 
 class ActionButton : AppCompatButton, UpdateActionButton {
 
@@ -33,7 +31,7 @@ class ActionButton : AppCompatButton, UpdateActionButton {
         isEnabled = enabled
     }
 
-    fun handleAction(viewModel: Actions): UiState = actionButtonUiState.handleAction(viewModel)
+//    fun handleAction(viewModel: Actions): UiState = actionButtonUiState.handleAction(viewModel)
 
     override fun onSaveInstanceState(): Parcelable? {
         return super.onSaveInstanceState()?.let {

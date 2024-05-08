@@ -1,8 +1,8 @@
 package com.example.lemonadeapp
 
 import com.example.lemonadeapp.data.repository.Repository
-import com.example.lemonadeapp.presentation.MainViewModel
 import com.example.lemonadeapp.presentation.UiState
+import com.example.lemonadeapp.presentation.squeezing.SqueezingViewModel
 import com.example.lemonadeapp.views.action.ActionButtonUiState
 import com.example.lemonadeapp.views.picture.PictureUiState
 import com.example.lemonadeapp.views.text.TextUiState
@@ -10,7 +10,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 
-class MainViewModelTest {
+class SqueezingViewModelTest {
 
     /**
      * TestCase N1: сorrect
@@ -23,7 +23,7 @@ class MainViewModelTest {
     @Test
     fun testCase1() {
         val repository: FakeRepository = FakeRepository()
-        val viewModel: MainViewModel = MainViewModel(repository = repository)
+        val viewModel: SqueezingViewModel = SqueezingViewModel(repository = repository)
 
         var actualUiState: UiState = viewModel.init()
         var expectedUiState: UiState = UiState.NewGame(

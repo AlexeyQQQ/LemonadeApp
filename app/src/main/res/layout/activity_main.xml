@@ -1,39 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootLayout"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".presentation.MainActivity">
-
-    <com.example.lemonadeapp.views.picture.PictureButton
-        android:id="@+id/pictureImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/image_button"
-        tools:src="@drawable/ic_tree" />
-
-    <com.example.lemonadeapp.views.action.ActionButton
-        android:id="@+id/actionButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:freezesText="true"
-        android:padding="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        tools:text="@string/select_lemon" />
-
-    <com.example.lemonadeapp.views.text.CustomTextView
-        android:id="@+id/hintTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:freezesText="true"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        tools:text="@string/hint_select_lemon" />
-
-</LinearLayout>
+    android:layout_height="match_parent" />

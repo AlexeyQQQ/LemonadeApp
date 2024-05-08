@@ -2,7 +2,7 @@ package com.example.lemonadeapp
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.lemonadeapp.presentation.MainActivity
+import com.example.lemonadeapp.presentation.main.MainActivity
 import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test

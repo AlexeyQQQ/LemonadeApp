@@ -1,4 +1,4 @@
-package com.example.lemonadeapp.presentation
+package com.example.lemonadeapp.presentation.squeezing
 
 import com.example.lemonadeapp.views.action.ActionButtonUiState
 import com.example.lemonadeapp.views.action.UpdateActionButton
@@ -8,7 +8,7 @@ import com.example.lemonadeapp.views.text.TextUiState
 import com.example.lemonadeapp.views.text.UpdateTextView
 import java.io.Serializable
 
-interface UiState : Serializable {
+interface SqueezingUiState : Serializable {
 
     fun update(
         pictureImageButton: UpdatePictureButton,
@@ -16,7 +16,7 @@ interface UiState : Serializable {
         hintTextView: UpdateTextView,
     )
 
-    object Empty : UiState {
+    object Empty : SqueezingUiState {
         override fun update(
             pictureImageButton: UpdatePictureButton,
             actionButton: UpdateActionButton,
@@ -28,7 +28,7 @@ interface UiState : Serializable {
         private val picture: PictureUiState,
         private val button: ActionButtonUiState,
         private val text: TextUiState,
-    ) : UiState {
+    ) : SqueezingUiState {
 
         override fun update(
             pictureImageButton: UpdatePictureButton,
@@ -41,12 +41,6 @@ interface UiState : Serializable {
         }
     }
 
-    data class NewGame(
-        private val picture: PictureUiState,
-        private val button: ActionButtonUiState,
-        private val text: TextUiState,
-    ) : Abstract(picture, button, text)
-
     data class StartSqueezing(
         private val picture: PictureUiState,
         private val button: ActionButtonUiState,
@@ -54,18 +48,6 @@ interface UiState : Serializable {
     ) : Abstract(picture, button, text)
 
     data class FinishSqueezing(
-        private val picture: PictureUiState,
-        private val button: ActionButtonUiState,
-        private val text: TextUiState,
-    ) : Abstract(picture, button, text)
-
-    data class LemonadeIsReady(
-        private val picture: PictureUiState,
-        private val button: ActionButtonUiState,
-        private val text: TextUiState,
-    ) : Abstract(picture, button, text)
-
-    data class FinishGame(
         private val picture: PictureUiState,
         private val button: ActionButtonUiState,
         private val text: TextUiState,

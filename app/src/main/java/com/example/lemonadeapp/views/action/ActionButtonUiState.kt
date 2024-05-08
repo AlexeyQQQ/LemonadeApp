@@ -2,15 +2,13 @@ package com.example.lemonadeapp.views.action
 
 import androidx.annotation.StringRes
 import com.example.lemonadeapp.R
-import com.example.lemonadeapp.presentation.Actions
-import com.example.lemonadeapp.presentation.UiState
 import java.io.Serializable
 
 interface ActionButtonUiState : Serializable {
 
     fun update(button: UpdateActionButton)
 
-    fun handleAction(viewModel: Actions): UiState
+//    fun handleAction(viewModel: Actions): UiState
 
     abstract class Abstract(
         private val enabled: Boolean = true,
@@ -24,30 +22,30 @@ interface ActionButtonUiState : Serializable {
     }
 
     object NewGame : Abstract(resId = R.string.select_lemon) {
-        override fun handleAction(viewModel: Actions): UiState {
-            return viewModel.startSqueezing()
-        }
+//        override fun handleAction(viewModel: Actions): UiState {
+//            return viewModel.startSqueezing()
+//        }
     }
 
     object StartSqueezing : Abstract(enabled = false, resId = R.string.squeeze_lemon) {
-        override fun handleAction(viewModel: Actions): UiState = throw IllegalStateException("")
+//        override fun handleAction(viewModel: Actions): UiState = throw IllegalStateException("")
     }
 
     object FinishSqueezing : Abstract(resId = R.string.squeeze_lemon) {
-        override fun handleAction(viewModel: Actions): UiState {
-            return viewModel.lemonadeIsReady()
-        }
+//        override fun handleAction(viewModel: Actions): UiState {
+//            return viewModel.lemonadeIsReady()
+//        }
     }
 
     object LemonadeIsReady : Abstract(resId = R.string.drink) {
-        override fun handleAction(viewModel: Actions): UiState {
-            return viewModel.finishGame()
-        }
+//        override fun handleAction(viewModel: Actions): UiState {
+//            return viewModel.finishGame()
+//        }
     }
 
     object FinishGame : Abstract(resId = R.string.start_again) {
-        override fun handleAction(viewModel: Actions): UiState {
-            return viewModel.newGame()
-        }
+//        override fun handleAction(viewModel: Actions): UiState {
+//            return viewModel.newGame()
+//        }
     }
 }
