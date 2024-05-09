@@ -14,15 +14,9 @@ interface SqueezingUiState : Serializable {
         pictureImageButton: UpdatePictureButton,
         actionButton: UpdateActionButton,
         hintTextView: UpdateTextView,
-    )
+    ) = Unit
 
-    object Empty : SqueezingUiState {
-        override fun update(
-            pictureImageButton: UpdatePictureButton,
-            actionButton: UpdateActionButton,
-            hintTextView: UpdateTextView,
-        ) = Unit
-    }
+    object Empty : SqueezingUiState
 
     abstract class Abstract(
         private val picture: PictureUiState,

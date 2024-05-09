@@ -1,40 +1,31 @@
 package com.example.lemonadeapp
 
 import com.example.lemonadeapp.data.repository.Repository
-import com.example.lemonadeapp.presentation.UiState
+import com.example.lemonadeapp.presentation.squeezing.SqueezingUiState
 import com.example.lemonadeapp.presentation.squeezing.SqueezingViewModel
 import com.example.lemonadeapp.views.action.ActionButtonUiState
 import com.example.lemonadeapp.views.picture.PictureUiState
 import com.example.lemonadeapp.views.text.TextUiState
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 
 
 class SqueezingViewModelTest {
 
-    /**
-     * TestCase N1: сorrect
-     * 1 Нажать на кнопку 1 - перешли на #2 State: Start squeezing
-     * 2 Тапнуть 5 раз по картинке лимона - перешли на #3 State: Finish squeezing
-     * 3 Нажали на кнопку 1 - перешли на #4 State: Lemonade is ready
-     * 4 Нажали на кнопку 1 - перешли на #5 State: Finish game
-     * 5 Нажали на кнопку 1 - вернулись на #1 State: New game
-     */
+    private lateinit var repository: FakeRepository
+    private lateinit var viewModel: SqueezingViewModel
+
+    @Before
+    fun beforeTest() {
+        repository = FakeRepository()
+        viewModel = SqueezingViewModel(repository = repository)
+    }
+
     @Test
-    fun testCase1() {
-        val repository: FakeRepository = FakeRepository()
-        val viewModel: SqueezingViewModel = SqueezingViewModel(repository = repository)
-
-        var actualUiState: UiState = viewModel.init()
-        var expectedUiState: UiState = UiState.NewGame(
-            picture = PictureUiState.NewGame,
-            button = ActionButtonUiState.NewGame,
-            text = TextUiState.NewGame,
-        )
-        assertEquals(expectedUiState, actualUiState)
-
-        actualUiState = viewModel.startSqueezing()
-        expectedUiState = UiState.StartSqueezing(
+    fun testUiStates() {
+        var actualUiState: SqueezingUiState = viewModel.init()
+        var expectedUiState: SqueezingUiState = SqueezingUiState.StartSqueezing(
             picture = PictureUiState.StartSqueezing,
             button = ActionButtonUiState.StartSqueezing,
             text = TextUiState.StartSqueezing,
@@ -44,42 +35,26 @@ class SqueezingViewModelTest {
             assertEquals(expectedUiState, actualUiState)
             actualUiState = viewModel.clickOnPicture()
         }
-        expectedUiState = UiState.FinishSqueezing(
+
+        expectedUiState = SqueezingUiState.FinishSqueezing(
             picture = PictureUiState.FinishSqueezing,
             button = ActionButtonUiState.FinishSqueezing,
             text = TextUiState.FinishSqueezing,
         )
         assertEquals(expectedUiState, actualUiState)
+    }
 
-        actualUiState = viewModel.lemonadeIsReady()
-        expectedUiState = UiState.LemonadeIsReady(
-            picture = PictureUiState.LemonadeIsReady,
-            button = ActionButtonUiState.LemonadeIsReady,
-            text = TextUiState.LemonadeIsReady,
-        )
-        assertEquals(expectedUiState, actualUiState)
-
-        actualUiState = viewModel.finishGame()
-        expectedUiState = UiState.FinishGame(
-            picture = PictureUiState.FinishGame,
-            button = ActionButtonUiState.FinishGame,
-            text = TextUiState.FinishGame,
-        )
-        assertEquals(expectedUiState, actualUiState)
-
-        actualUiState = viewModel.newGame()
-        expectedUiState = UiState.NewGame(
-            picture = PictureUiState.NewGame,
-            button = ActionButtonUiState.NewGame,
-            text = TextUiState.NewGame,
-        )
-        assertEquals(expectedUiState, actualUiState)
+    @Test
+    fun testExit() {
+        viewModel.exit()
+        assertEquals(1, repository.resetCount)
     }
 }
 
 private class FakeRepository : Repository {
 
-    private var counterOfClicks: Int = 0
+    var counterOfClicks: Int = 0
+    var resetCount: Int = 0
 
     override fun increment() {
         counterOfClicks++
@@ -91,5 +66,6 @@ private class FakeRepository : Repository {
 
     override fun reset() {
         counterOfClicks = 0
+        resetCount++
     }
 }
