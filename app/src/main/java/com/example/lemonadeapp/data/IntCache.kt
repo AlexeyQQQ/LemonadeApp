@@ -1,4 +1,4 @@
-package com.example.lemonadeapp.data.repository
+package com.example.lemonadeapp.data
 
 import android.content.SharedPreferences
 
@@ -9,7 +9,7 @@ interface IntCache {
     fun read(): Int
 
     class Base(
-        private val permanentStorage: PermanentStorage,
+        private val permanentStorage: IntPermanentStorage,
         private val key: String,
         private val default: Int,
     ) : IntCache {
@@ -25,7 +25,7 @@ interface IntCache {
 }
 
 
-interface PermanentStorage {
+interface IntPermanentStorage {
 
     fun save(key: String, value: Int)
 
@@ -33,7 +33,7 @@ interface PermanentStorage {
 
     class Base(
         private val sharedPreferences: SharedPreferences
-    ) : PermanentStorage {
+    ) : IntPermanentStorage {
 
         override fun save(key: String, value: Int) {
             sharedPreferences.edit().putInt(key, value).apply()

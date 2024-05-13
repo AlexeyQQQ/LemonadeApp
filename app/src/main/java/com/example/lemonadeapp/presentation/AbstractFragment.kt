@@ -8,30 +8,35 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.example.lemonadeapp.R
-import com.example.lemonadeapp.presentation.main.Navigation
 
 abstract class AbstractFragment(
     @DrawableRes private val imageResId: Int,
     @StringRes private val buttonTextResId: Int,
-    @StringRes private val hintTextResId: Int
+    @StringRes private val hintResId: Int,
 ) : Fragment(R.layout.fragment_abstract) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         val image = view.findViewById<ImageButton>(R.id.pictureImageButton)
         image.setImageResource(imageResId)
 
         val button = view.findViewById<Button>(R.id.actionButton)
         button.setText(buttonTextResId)
+
         button.setOnClickListener {
-            (requireActivity() as Navigation).navigate(nextFragment())
+            navigation(requireActivity())
         }
 
         val hint = view.findViewById<TextView>(R.id.hintTextView)
-        hint.setText(hintTextResId)
+        hint.setText(hintResId)
+
+        saveLastScreen(requireActivity())
     }
 
     protected abstract fun nextFragment(): Fragment
+
+    protected abstract fun navigation(activity: FragmentActivity)
+
+    protected abstract fun saveLastScreen(activity: FragmentActivity)
 }

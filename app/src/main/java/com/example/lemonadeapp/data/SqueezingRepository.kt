@@ -1,6 +1,8 @@
-package com.example.lemonadeapp.data.repository
+package com.example.lemonadeapp.data
 
-interface Repository {
+import com.example.lemonadeapp.presentation.squeezing.SqueezingScreen
+
+interface SqueezingRepository {
 
     fun increment()
 
@@ -8,9 +10,12 @@ interface Repository {
 
     fun reset()
 
+    fun saveLastScreen()
+
     class Base(
         private val counterOfClicks: IntCache,
-    ) : Repository {
+        private val lastScreen: StringCache,
+    ) : SqueezingRepository {
 
         override fun increment() {
             val current = counterOfClicks.read()
@@ -24,6 +29,10 @@ interface Repository {
 
         override fun reset() {
             counterOfClicks.save(0)
+        }
+
+        override fun saveLastScreen() {
+            SqueezingScreen::class.java.canonicalName?.let { lastScreen.save(it) }
         }
     }
 }

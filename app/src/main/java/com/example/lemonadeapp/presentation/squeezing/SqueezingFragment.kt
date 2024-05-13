@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.lemonadeapp.LemonadeApp
 import com.example.lemonadeapp.databinding.FragmentSqueezingBinding
-import com.example.lemonadeapp.presentation.lemonade_ready.LemonadeReadyFragment
-import com.example.lemonadeapp.presentation.main.Navigation
 
 class SqueezingFragment : Fragment() {
 
@@ -29,7 +27,7 @@ class SqueezingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         lateinit var uiState: SqueezingUiState
-        val viewModel = (requireActivity().application as LemonadeApp).viewModel
+        val viewModel = (requireActivity().application as LemonadeApp).squeezingViewModel
 
         val showUi: () -> Unit = {
             uiState.update(
@@ -41,7 +39,7 @@ class SqueezingFragment : Fragment() {
 
         binding.actionButton.setOnClickListener {
             viewModel.exit()
-            (requireActivity() as Navigation).navigate(LemonadeReadyFragment())
+            (requireActivity() as SqueezingNavigation).navigateFromSqueezing()
         }
 
         binding.pictureImageButton.setOnClickListener {
@@ -57,4 +55,8 @@ class SqueezingFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
+}
+
+interface SqueezingNavigation {
+    fun navigateFromSqueezing()
 }

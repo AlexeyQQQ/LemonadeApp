@@ -1,6 +1,6 @@
 package com.example.lemonadeapp
 
-import com.example.lemonadeapp.data.repository.Repository
+import com.example.lemonadeapp.data.SqueezingRepository
 import com.example.lemonadeapp.presentation.squeezing.SqueezingUiState
 import com.example.lemonadeapp.presentation.squeezing.SqueezingViewModel
 import com.example.lemonadeapp.views.action.ActionButtonUiState
@@ -13,13 +13,13 @@ import org.junit.Test
 
 class SqueezingViewModelTest {
 
-    private lateinit var repository: FakeRepository
+    private lateinit var repository: FakeSqueezingRepository
     private lateinit var viewModel: SqueezingViewModel
 
     @Before
     fun beforeTest() {
-        repository = FakeRepository()
-        viewModel = SqueezingViewModel(repository = repository)
+        repository = FakeSqueezingRepository()
+        viewModel = SqueezingViewModel(squeezingRepository = repository)
     }
 
     @Test
@@ -51,7 +51,7 @@ class SqueezingViewModelTest {
     }
 }
 
-private class FakeRepository : Repository {
+private class FakeSqueezingRepository : SqueezingRepository {
 
     var counterOfClicks: Int = 0
     var resetCount: Int = 0
@@ -68,4 +68,6 @@ private class FakeRepository : Repository {
         counterOfClicks = 0
         resetCount++
     }
+
+    override fun saveLastScreen() = Unit
 }
