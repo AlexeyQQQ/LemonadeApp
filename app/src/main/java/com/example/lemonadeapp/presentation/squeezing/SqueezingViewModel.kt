@@ -1,5 +1,6 @@
 package com.example.lemonadeapp.presentation.squeezing
 
+import androidx.lifecycle.ViewModel
 import com.example.lemonadeapp.data.SqueezingRepository
 import com.example.lemonadeapp.views.action.ActionButtonUiState
 import com.example.lemonadeapp.views.picture.PictureUiState
@@ -7,7 +8,7 @@ import com.example.lemonadeapp.views.text.TextUiState
 
 class SqueezingViewModel(
     private val squeezingRepository: SqueezingRepository
-) {
+) : ViewModel() {
 
     fun init(isFirstTime: Boolean = true): SqueezingUiState {
         return if (isFirstTime) {

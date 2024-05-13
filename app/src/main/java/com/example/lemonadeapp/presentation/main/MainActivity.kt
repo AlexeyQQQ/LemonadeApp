@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.example.lemonadeapp.LemonadeApp
+import androidx.lifecycle.ViewModel
+import com.example.lemonadeapp.ManageViewModels
 import com.example.lemonadeapp.R
 import com.example.lemonadeapp.presentation.finish_game.FinishGameNavigation
 import com.example.lemonadeapp.presentation.finish_game.FinishGameScreen
@@ -15,13 +16,13 @@ import com.example.lemonadeapp.presentation.new_game.NewGameScreen
 import com.example.lemonadeapp.presentation.squeezing.SqueezingNavigation
 import com.example.lemonadeapp.presentation.squeezing.SqueezingScreen
 
-class MainActivity : AppCompatActivity(), Navigation {
+class MainActivity : AppCompatActivity(), Navigation, ManageViewModels {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val viewModel = (application as LemonadeApp).mainViewModel
+        val viewModel = viewModel(MainViewModel::class.java)
 
         val lastScreen = viewModel.init(savedInstanceState == null)
         navigate(lastScreen)
@@ -29,6 +30,14 @@ class MainActivity : AppCompatActivity(), Navigation {
 
     override fun navigate(screen: Screen) {
         screen.show(R.id.container, supportFragmentManager)
+    }
+
+    override fun clear(clazz: Class<out ViewModel>) {
+        (application as ManageViewModels).clear(clazz)
+    }
+
+    override fun <T : ViewModel> viewModel(clazz: Class<T>): T {
+        return (application as ManageViewModels).viewModel(clazz)
     }
 }
 

@@ -1,10 +1,11 @@
 package com.example.lemonadeapp.presentation.new_game
 
+import androidx.lifecycle.ViewModel
 import com.example.lemonadeapp.data.StringCache
 
 class NewGameViewModel(
     private val repository: NewGameRepository,
-) {
+) : ViewModel() {
 
     fun saveLastScreen() {
         repository.saveLastScreen()

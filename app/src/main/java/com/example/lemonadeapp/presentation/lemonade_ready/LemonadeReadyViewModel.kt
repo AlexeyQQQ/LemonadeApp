@@ -1,10 +1,11 @@
 package com.example.lemonadeapp.presentation.lemonade_ready
 
+import androidx.lifecycle.ViewModel
 import com.example.lemonadeapp.data.StringCache
 
 class LemonadeReadyViewModel(
     private val repository: LemonadeReadyRepository,
-) {
+) : ViewModel() {
 
     fun saveLastScreen() {
         repository.saveLastScreen()
