@@ -1,7 +1,7 @@
 package com.example.lemonadeapp
 
-import com.example.lemonadeapp.views.action.ActionButtonUiState
-import com.example.lemonadeapp.views.action.UpdateActionButton
+import com.example.lemonadeapp.core.views.action.ActionButtonUiState
+import com.example.lemonadeapp.core.views.action.UpdateActionButton
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

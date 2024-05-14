@@ -1,11 +1,11 @@
 package com.example.lemonadeapp
 
-import com.example.lemonadeapp.data.SqueezingRepository
-import com.example.lemonadeapp.presentation.squeezing.SqueezingUiState
-import com.example.lemonadeapp.presentation.squeezing.SqueezingViewModel
-import com.example.lemonadeapp.views.action.ActionButtonUiState
-import com.example.lemonadeapp.views.picture.PictureUiState
-import com.example.lemonadeapp.views.text.TextUiState
+import com.example.lemonadeapp.core.views.action.ActionButtonUiState
+import com.example.lemonadeapp.core.views.picture.PictureUiState
+import com.example.lemonadeapp.core.views.text.TextUiState
+import com.example.lemonadeapp.squeezing.data.SqueezingRepository
+import com.example.lemonadeapp.squeezing.presentation.SqueezingUiState
+import com.example.lemonadeapp.squeezing.presentation.SqueezingViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

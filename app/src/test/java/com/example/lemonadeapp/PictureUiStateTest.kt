@@ -1,8 +1,8 @@
 package com.example.lemonadeapp
 
 import androidx.annotation.DrawableRes
-import com.example.lemonadeapp.views.picture.PictureUiState
-import com.example.lemonadeapp.views.picture.UpdatePictureButton
+import com.example.lemonadeapp.core.views.picture.PictureUiState
+import com.example.lemonadeapp.core.views.picture.UpdatePictureButton
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

@@ -1,7 +1,7 @@
 package com.example.lemonadeapp
 
-import com.example.lemonadeapp.views.text.TextUiState
-import com.example.lemonadeapp.views.text.UpdateTextView
+import com.example.lemonadeapp.core.views.text.TextUiState
+import com.example.lemonadeapp.core.views.text.UpdateTextView
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

@@ -1,0 +1,65 @@
+package com.example.lemonadeapp.squeezing.presentation
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.lemonadeapp.core.di.ManageViewModels
+import com.example.lemonadeapp.databinding.FragmentSqueezingBinding
+
+class SqueezingFragment : Fragment() {
+
+    private var _binding: FragmentSqueezingBinding? = null
+    private val binding: FragmentSqueezingBinding
+        get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentSqueezingBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        lateinit var uiState: SqueezingUiState
+
+        val manageViewModels = activity as ManageViewModels
+        val viewModel = manageViewModels.viewModel(SqueezingViewModel::class.java)
+
+        val showUi: () -> Unit = {
+            uiState.update(
+                binding.pictureImageButton,
+                binding.actionButton,
+                binding.hintTextView
+            )
+        }
+
+        binding.actionButton.setOnClickListener {
+            viewModel.exit()
+            manageViewModels.clear(SqueezingViewModel::class.java)
+            (requireActivity() as SqueezingNavigation).navigateFromSqueezing()
+        }
+
+        binding.pictureImageButton.setOnClickListener {
+            uiState = viewModel.clickOnPicture()
+            showUi.invoke()
+        }
+
+        uiState = viewModel.init(savedInstanceState == null)
+        showUi.invoke()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+}
+
+interface SqueezingNavigation {
+    fun navigateFromSqueezing()
+}
