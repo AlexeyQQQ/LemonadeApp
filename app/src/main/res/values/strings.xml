@@ -9,4 +9,5 @@
     <string name="hint_drink">Tap to drink it</string>
     <string name="hint_start_again">Tap to start again</string>
     <string name="image_button">image button</string>
+    <string name="retry">retry</string>
 </resources>

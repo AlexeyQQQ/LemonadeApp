@@ -1,4 +1,4 @@
-package com.example.lemonadeapp
+package com.example.lemonadeapp.game_page
 
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageButton
@@ -7,6 +7,8 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isClickable
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import com.example.lemonadeapp.R
+import com.example.lemonadeapp.custom_matchers.DrawableMatcher
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
