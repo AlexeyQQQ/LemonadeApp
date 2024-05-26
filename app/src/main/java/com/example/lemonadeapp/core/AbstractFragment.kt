@@ -31,10 +31,10 @@ abstract class AbstractFragment(
         val hint = view.findViewById<TextView>(R.id.hintTextView)
         hint.setText(hintResId)
 
-        saveLastScreen(requireActivity())
+        if (savedInstanceState == null) {
+            saveLastScreen(requireActivity())
+        }
     }
-
-    protected abstract fun nextFragment(): Fragment
 
     protected abstract fun navigation(activity: FragmentActivity)
 

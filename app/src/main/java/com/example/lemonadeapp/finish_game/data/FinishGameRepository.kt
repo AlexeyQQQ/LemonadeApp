@@ -1,7 +1,7 @@
 package com.example.lemonadeapp.finish_game.data
 
 import com.example.lemonadeapp.core.data.StringCache
-import com.example.lemonadeapp.new_game.presentation.NewGameScreen
+import com.example.lemonadeapp.finish_game.presentation.FinishGameScreen
 
 interface FinishGameRepository {
 
@@ -12,7 +12,7 @@ interface FinishGameRepository {
     ) : FinishGameRepository {
 
         override fun saveLastScreen() {
-            NewGameScreen::class.java.canonicalName?.let { lastScreen.save(it) }
+            FinishGameScreen::class.java.canonicalName?.let { lastScreen.save(it) }
         }
     }
 }
