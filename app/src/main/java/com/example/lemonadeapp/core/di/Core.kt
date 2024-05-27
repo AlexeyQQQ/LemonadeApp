@@ -18,7 +18,7 @@ class Core(context: Context) {
     val lastScreen: StringCache
 
     init {
-
+//        runUiTest = BuildConfig.DEBUG
         val sharedPreferences =
             context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
 

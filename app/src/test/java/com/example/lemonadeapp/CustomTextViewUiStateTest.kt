@@ -18,7 +18,7 @@ class CustomTextViewUiStateTest {
 
     @Test
     fun testStartSqueezingState() {
-        val state = TextUiState.StartSqueezing
+        val state = TextUiState.StartSqueezing(requiredClicks = 5)
         val textView = FakeTextView()
         state.update(textView)
 
@@ -31,7 +31,7 @@ class CustomTextViewUiStateTest {
         val textView = FakeTextView()
         state.update(textView)
 
-        assertEquals(R.string.hint_start_squeezing, textView.actualResId)
+        assertEquals(R.string.hint_finish_squeezing, textView.actualResId)
     }
 
     @Test
@@ -58,6 +58,10 @@ private class FakeTextView : UpdateTextView {
     var actualResId: Int = -1
 
     override fun updateText(resId: Int) {
+        actualResId = resId
+    }
+
+    override fun updateText(resId: Int, requiredClicks: Int) {
         actualResId = resId
     }
 }

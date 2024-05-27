@@ -68,9 +68,9 @@ class ScenarioTest {
 
         // step 2
         repeat(5) {
-            gamePage.checkStateStartSqueezing()
+            gamePage.checkStateStartSqueezing(requiredClicks = 5)
             activityScenarioRule.scenario.recreate()
-            gamePage.checkStateStartSqueezing()
+            gamePage.checkStateStartSqueezing(requiredClicks = 5)
             gamePage.clickOnPicture()
         }
         gamePage.checkStateFinishSqueezing()

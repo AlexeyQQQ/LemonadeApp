@@ -28,7 +28,7 @@ class SqueezingViewModelTest {
         var expectedUiState: SqueezingUiState = SqueezingUiState.StartSqueezing(
             picture = PictureUiState.StartSqueezing,
             button = ActionButtonUiState.StartSqueezing,
-            text = TextUiState.StartSqueezing,
+            text = TextUiState.StartSqueezing(requiredClicks = 5),
         )
 
         repeat(5) {
@@ -53,6 +53,7 @@ class SqueezingViewModelTest {
 
 private class FakeSqueezingRepository : SqueezingRepository {
 
+    val maxClicks: Int = 5
     var counterOfClicks: Int = 0
     var resetCount: Int = 0
 
@@ -70,4 +71,6 @@ private class FakeSqueezingRepository : SqueezingRepository {
     }
 
     override fun saveLastScreen() = Unit
+
+    override fun requiredClicks(): Int = maxClicks
 }

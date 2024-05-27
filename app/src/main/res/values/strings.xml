@@ -5,7 +5,8 @@
     <string name="drink">Drink</string>
     <string name="start_again">Start again</string>
     <string name="hint_select_lemon">Tap to select a lemon</string>
-    <string name="hint_start_squeezing">Keep tapping the lemon image to squeeze it, click 5 times more</string>
+    <string name="hint_start_squeezing">Keep tapping the lemon image to squeeze it, click %d times more</string>
+    <string name="hint_finish_squeezing">Now you can squeeze a lemon</string>
     <string name="hint_drink">Tap to drink it</string>
     <string name="hint_start_again">Tap to start again</string>
     <string name="image_button">image button</string>

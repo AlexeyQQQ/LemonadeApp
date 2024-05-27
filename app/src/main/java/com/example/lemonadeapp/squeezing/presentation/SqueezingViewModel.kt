@@ -23,7 +23,7 @@ class SqueezingViewModel(
                 SqueezingUiState.StartSqueezing(
                     picture = PictureUiState.StartSqueezing,
                     button = ActionButtonUiState.StartSqueezing,
-                    text = TextUiState.StartSqueezing,
+                    text = TextUiState.StartSqueezing(squeezingRepository.requiredClicks()),
                 )
             }
         } else {
@@ -43,7 +43,7 @@ class SqueezingViewModel(
             SqueezingUiState.StartSqueezing(
                 picture = PictureUiState.StartSqueezing,
                 button = ActionButtonUiState.StartSqueezing,
-                text = TextUiState.StartSqueezing,
+                text = TextUiState.StartSqueezing(squeezingRepository.requiredClicks()),
             )
         }
     }

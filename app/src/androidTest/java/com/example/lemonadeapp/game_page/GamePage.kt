@@ -23,10 +23,10 @@ class GamePage {
         textUi.checkStateNewGame()
     }
 
-    fun checkStateStartSqueezing() {
+    fun checkStateStartSqueezing(requiredClicks: Int) {
         pictureUi.checkStateStartSqueezing()
         actionButtonUi.checkStateStartSqueezing()
-        textUi.checkStateStartSqueezing()
+        textUi.checkStateStartSqueezing(requiredClicks = requiredClicks)
     }
 
     fun checkStateFinishSqueezing() {

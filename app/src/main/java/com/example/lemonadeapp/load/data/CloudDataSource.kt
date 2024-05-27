@@ -30,7 +30,6 @@ interface CloudDataSource {
             }
         }
     }
-
 }
 
 interface NumberService {
