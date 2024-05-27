@@ -11,6 +11,8 @@ import com.example.lemonadeapp.finish_game.presentation.FinishGameNavigation
 import com.example.lemonadeapp.finish_game.presentation.FinishGameScreen
 import com.example.lemonadeapp.lemonade_ready.presentation.LemonadeReadyNavigation
 import com.example.lemonadeapp.lemonade_ready.presentation.LemonadeReadyScreen
+import com.example.lemonadeapp.load.presentation.LoadNavigation
+import com.example.lemonadeapp.load.presentation.LoadScreen
 import com.example.lemonadeapp.new_game.presentation.NewGameNavigation
 import com.example.lemonadeapp.new_game.presentation.NewGameScreen
 import com.example.lemonadeapp.squeezing.presentation.SqueezingNavigation
@@ -44,11 +46,16 @@ class MainActivity : AppCompatActivity(), Navigation, ManageViewModels {
 interface Navigation : NewGameNavigation,
     SqueezingNavigation,
     LemonadeReadyNavigation,
-    FinishGameNavigation {
+    FinishGameNavigation,
+    LoadNavigation {
 
     fun navigate(screen: Screen)
 
     override fun navigateFromNewGame() {
+        navigate(LoadScreen)
+    }
+
+    override fun navigateFromLoad() {
         navigate(SqueezingScreen)
     }
 
