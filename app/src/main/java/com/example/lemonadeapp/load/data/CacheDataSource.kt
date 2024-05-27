@@ -9,15 +9,15 @@ interface CacheDataSource {
     fun read(): Int
 
     class Base(
-        private val stringCache: IntCache,
+        private val intCache: IntCache,
     ) : CacheDataSource {
 
         override fun save(data: Int) {
-            stringCache.save(data)
+            intCache.save(data)
         }
 
         override fun read(): Int {
-            return stringCache.read()
+            return intCache.read()
         }
     }
 }
